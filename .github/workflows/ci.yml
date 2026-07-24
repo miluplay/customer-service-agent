@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  evaluate:
+    name: Offline evaluation
+    runs-on: ubuntu-latest
+    env:
+      DEEPSEEK_API_KEY: ""
+      OPENAI_API_KEY: ""
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run conversation evaluation
+        run: PYTHONPATH=. python eval/run_conversation_eval.py
+
+      - name: Run tool-safety evaluation
+        run: PYTHONPATH=. python eval/run_tool_safety_eval.py
