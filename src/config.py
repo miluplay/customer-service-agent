@@ -31,6 +31,8 @@ class Settings:
     model_name: str
     deepseek_base_url: str
     embedding_model: str
+    dashscope_embedding_model: str
+    dashscope_base_url: str
     knowledge_base_dir: str
     vector_store_path: str
     top_k: int
@@ -56,6 +58,8 @@ settings = Settings(
     model_name=os.getenv("MODEL_NAME", "deepseek-v4-flash"),
     deepseek_base_url=os.getenv("DEEPSEEK_BASE_URL", "https://api.deepseek.com"),
     embedding_model=os.getenv("EMBEDDING_MODEL", "text-embedding-3-small"),
+    dashscope_embedding_model=os.getenv("DASHSCOPE_EMBEDDING_MODEL", "text-embedding-v4"),
+    dashscope_base_url=os.getenv("DASHSCOPE_BASE_URL", "https://dashscope.aliyuncs.com/compatible-mode/v1"),
     knowledge_base_dir=_get_path("KNOWLEDGE_BASE_DIR", "data/knowledge_base"),
     vector_store_path=_get_path("VECTOR_STORE_PATH", "data/vector_store.json"),
     top_k=_get_int("TOP_K", 5),
@@ -65,6 +69,8 @@ settings = Settings(
 MODEL_NAME = settings.model_name
 DEEPSEEK_BASE_URL = settings.deepseek_base_url
 EMBEDDING_MODEL = settings.embedding_model
+DASHSCOPE_EMBEDDING_MODEL = settings.dashscope_embedding_model
+DASHSCOPE_BASE_URL = settings.dashscope_base_url
 KNOWLEDGE_BASE_DIR = settings.knowledge_base_dir
 VECTOR_STORE_PATH = settings.vector_store_path
 TOP_K = settings.top_k

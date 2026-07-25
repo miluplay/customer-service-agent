@@ -29,6 +29,23 @@ def chunk_text(text: str, chunk_size: int = 800, overlap: int = 100) -> list[str
 def embed_texts(texts: list[str]) -> list[list[float]]:
     if not texts:
         return []
+    # 百炼与 OpenAI 使用同一个 SDK；前者优先，便于本项目在国内直接使用。
+    if os.getenv("DASHSCOPE_API_KEY"):
+        from openai import OpenAI
+
+        client = OpenAI(
+            api_key=os.environ["DASHSCOPE_API_KEY"],
+            base_url=settings.dashscope_base_url,
+        )
+        # 百炼 text-embedding-v4 单次最多接收 10 条文本。
+        embeddings: list[list[float]] = []
+        for start in range(0, len(texts), 10):
+            response = client.embeddings.create(
+                model=settings.dashscope_embedding_model,
+                input=texts[start : start + 10],
+            )
+            embeddings.extend(item.embedding for item in response.data)
+        return embeddings
     if os.getenv("OPENAI_API_KEY"):
         from openai import OpenAI
 

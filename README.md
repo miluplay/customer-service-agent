@@ -69,7 +69,7 @@ pip install -r requirements.txt
 cp .env.example .env
 ```
 
-填写 `.env` 中的 `DEEPSEEK_API_KEY` 后，可使用模型服务；不填写也可运行本地确定性回退，完成离线 Mock 演示和全部评测。
+填写 `.env` 中的 `DEEPSEEK_API_KEY` 后，可使用模型服务；配置 `DASHSCOPE_API_KEY` 后，知识库会优先使用百炼的 `text-embedding-v4` 生成真实向量。未配置向量服务时，项目会使用本地确定性向量回退，仍可完成离线 Mock 演示和全部评测。
 
 ```bash
 PYTHONPATH=. python scripts/chat.py
