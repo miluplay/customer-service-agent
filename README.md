@@ -1,7 +1,6 @@
 # Soundcore Customer Service Agent
 
-<!-- 发布前将 YOUR_GITHUB_USERNAME 替换为自己的 GitHub 用户名。 -->
-[![CI](https://github.com/YOUR_GITHUB_USERNAME/soundcore-customer-service-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/YOUR_GITHUB_USERNAME/soundcore-customer-service-agent/actions/workflows/ci.yml)
+[![CI](https://github.com/miluplay/soundcore-customer-service-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/miluplay/soundcore-customer-service-agent/actions/workflows/ci.yml)
 
 面向售后场景的中文多轮 AI 客服 Agent：通过 **RAG、原生 Function Calling、确定性业务工具和安全护栏**，将“理解用户诉求”和“执行售后动作”分层处理。
 
