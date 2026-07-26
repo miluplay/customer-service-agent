@@ -1,6 +1,6 @@
 # Soundcore Customer Service Agent
 
-[![CI](https://github.com/miluplay/soundcore-customer-service-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/miluplay/soundcore-customer-service-agent/actions/workflows/ci.yml)
+[![CI](https://github.com/miluplay/customer-service-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/miluplay/customer-service-agent/actions/workflows/ci.yml)
 
 面向售后场景的中文多轮 AI 客服 Agent：通过 **RAG、原生 Function Calling、确定性业务工具和安全护栏**，将“理解用户诉求”和“执行售后动作”分层处理。
 
@@ -60,7 +60,7 @@ flowchart TD
 **环境要求：** Python 3.11+。
 
 ```bash
-git clone https://github.com/YOUR_GITHUB_USERNAME/soundcore-customer-service-agent.git
+git clone https://github.com/miluplay/customer-service-agent.git
 cd soundcore-customer-service-agent
 python -m venv .venv
 source .venv/bin/activate
